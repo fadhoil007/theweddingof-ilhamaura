@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  background: #f6eddf;
+}
+
+::selection {
+  background: #d8b15f;
+  color: #fff8ea;
+}
+
+.gold-button,
+.cream-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 999px;
+  padding: 0.95rem 1.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+}
+
+.gold-button {
+  border: 1px solid rgba(255, 238, 182, 0.65);
+  background: linear-gradient(135deg, #8b611f, #d8b15f 48%, #fff0b7);
+  color: #fffaf0;
+  box-shadow: 0 18px 55px rgba(137, 91, 26, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.cream-button {
+  border: 1px solid rgba(216, 177, 95, 0.5);
+  background: rgba(255, 248, 234, 0.7);
+  color: #6d4c18;
+  box-shadow: 0 18px 45px rgba(137, 91, 26, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(18px);
+}
+
+.gold-button::before,
+.cream-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%) skewX(-18deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  transition: transform 650ms ease;
+}
+
+.gold-button:hover,
+.cream-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 70px rgba(137, 91, 26, 0.28);
+}
+
+.gold-button:hover::before,
+.cream-button:hover::before {
+  transform: translateX(120%) skewX(-18deg);
+}
+
+.glass-panel {
+  border: 1px solid rgba(216, 177, 95, 0.3);
+  border-radius: 2rem;
+  background: linear-gradient(145deg, rgba(255, 250, 240, 0.74), rgba(248, 235, 210, 0.45));
+  box-shadow: 0 28px 90px rgba(116, 79, 28, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+}
+
+.form-field {
+  width: 100%;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(216, 177, 95, 0.34);
+  background: rgba(255, 255, 255, 0.48);
+  padding: 1rem 1.15rem;
+  color: #4c3b28;
+  outline: none;
+  transition: border-color 250ms ease, box-shadow 250ms ease, background 250ms ease;
+}
+
+.form-field:focus {
+  border-color: rgba(185, 148, 76, 0.85);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 0 0 4px rgba(216, 177, 95, 0.14);
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(216, 177, 95, 0.62);
+  box-shadow: 0 0 22px rgba(216, 177, 95, 0.9);
+  animation: particle-float linear infinite;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  filter: blur(8px);
+  transition: opacity 900ms ease, transform 900ms ease, filter 900ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.hero-kicker {
+  animation: fade-up 1s ease 200ms both;
+}
+
+.hero-title {
+  text-shadow: 0 0 45px rgba(255, 224, 154, 0.38), 0 16px 80px rgba(46, 31, 12, 0.45);
+  animation: cinematic-title 1.25s cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+
+.hero-subtitle {
+  animation: fade-up 1s ease 450ms both;
+}
+
+.opening-rise {
+  animation: fade-up 1s ease both;
+}
+
+.opening-float {
+  animation: float-soft 7s ease-in-out infinite;
+}
+
+.floating-card {
+  animation: float-soft 7s ease-in-out infinite;
+}
+
+.floating-card:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.floating-card:nth-child(3) {
+  animation-delay: 1.4s;
+}
+
+.slow-spin {
+  animation: slow-spin 28s linear infinite;
+}
+
+.slow-spin-reverse {
+  animation: slow-spin 34s linear infinite reverse;
+}
+
+.music-disc {
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 999px;
+  border: 1px solid rgba(139, 97, 31, 0.55);
+  background: radial-gradient(circle at center, #fff8ea 0 18%, #b9944c 19% 34%, #3f2f1d 35% 100%);
+  box-shadow: 0 0 18px rgba(216, 177, 95, 0.45);
+}
+
+.music-disc.is-playing {
+  animation: slow-spin 3s linear infinite;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 1.4rem;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(#d8b15f, rgba(216, 177, 95, 0));
+}
+
+@keyframes cinematic-title {
+  from {
+    opacity: 0;
+    transform: translateY(36px) scale(0.96);
+    filter: blur(12px);
+    letter-spacing: -0.08em;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+    letter-spacing: -0.03em;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes particle-float {
+  from {
+    transform: translate3d(0, 18px, 0) scale(0.6);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  to {
+    transform: translate3d(18px, -120px, 0) scale(1.1);
+    opacity: 0;
+  }
+}
+
+@keyframes slow-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
